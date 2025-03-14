@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+📌 Django-based College Exam Management System
+An API-driven system for managing college exams, user authentication, and role-based access control.
+🚀 Project Overview
+This project is a Django-based Exam Management System that provides API endpoints for managing users, authentication, and exam-related functionalities.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The system allows admin users to create and manage exams, while authenticated students can access exam details. The system uses JWT authentication for secure login and role-based permissions for different user types.
 
-## Available Scripts
+✨ Features Implemented
+✔ User Registration & Authentication
+✔ JWT-based Login System
+✔ Admin Role for Exam Management
+✔ CRUD Operations for Exams
+✔ Role-Based Permissions
+✔ Django Admin Panel for User Management
+✔ RESTful API with Django Rest Framework
+✔ Database Migrations & ORM Queries
+✔ Git Version Control Setup
 
-In the project directory, you can run:
+📂 Project Structure
+bash
+Copy
+Edit
+backend/
+│── users/                 # User Authentication & Management
+│   ├── models.py          # User model definitions
+│   ├── views.py           # User API views
+│   ├── serializers.py     # User data serialization
+│   ├── urls.py            # User API routes
+│
+│── exams/                 # Exam Management Module
+│   ├── models.py          # Exam model
+│   ├── views.py           # Exam-related API views
+│   ├── serializers.py     # Exam data serialization
+│   ├── permissions.py     # Custom permissions for role-based access
+│   ├── urls.py            # Exam API routes
+│
+│── printing/              # Printing Exam Papers (To be implemented)
+│
+│── backend/               # Project settings and configurations
+│   ├── settings.py        # Django settings
+│   ├── urls.py            # Main URL routing
+│   ├── wsgi.py            # WSGI configuration for deployment
+│
+│── db.sqlite3             # SQLite Database
+│── manage.py              # Django command-line utility
+│── requirements.txt       # Python dependencies
+⚙️ Installation Guide
+1️⃣ Clone the Repository
+bash
+Copy
+Edit
+git clone https://github.com/rochitl72/Django-based-College-Exam-Management-System.git
+cd Django-based-College-Exam-Management-System/backend
+2️⃣ Create a Virtual Environment
+bash
+Copy
+Edit
+python3 -m venv venv
+source venv/bin/activate  # macOS/Linux
+venv\Scripts\activate     # Windows
+3️⃣ Install Dependencies
+bash
+Copy
+Edit
+pip install -r requirements.txt
+4️⃣ Apply Database Migrations
+bash
+Copy
+Edit
+python manage.py makemigrations
+python manage.py migrate
+5️⃣ Create a Superuser
+bash
+Copy
+Edit
+python manage.py createsuperuser
+(Follow the prompt to create an admin user)
 
-### `npm start`
+6️⃣ Run the Development Server
+bash
+Copy
+Edit
+python manage.py runserver
+Visit: http://127.0.0.1:8000/admin/ to access the Django Admin Panel.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🛠️ API Endpoints
+🔹 User Authentication
+Method	Endpoint	Description
+POST	/api/users/register/	Register a new user
+POST	/api/users/login/	Login and get JWT tokens
+GET	/api/users/profile/	View authenticated user's profile
+POST	/api/users/logout/	Logout and blacklist JWT token
+🔹 Exam Management
+Method	Endpoint	Description
+GET	/api/exams/	List all exams
+POST	/api/exams/	Create a new exam (Admin only)
+GET	/api/exams/{id}/	Retrieve a specific exam
+PUT	/api/exams/{id}/	Update exam details (Admin only)
+DELETE	/api/exams/{id}/	Delete an exam (Admin only)
+🛠️ Technologies Used
+✅ Django – Web framework
+✅ Django REST Framework (DRF) – API development
+✅ PostgreSQL/SQLite – Database
+✅ JWT Authentication – Secure login system
+✅ Git & GitHub – Version control
+✅ Django Admin Panel – User & data management
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+📌 What I Have Learned
+✅ Setting up Django with REST APIs
+✅ User authentication using JWT (JSON Web Tokens)
+✅ Handling database migrations and ORM queries
+✅ Role-based access control with custom permissions
+✅ Building CRUD APIs for exam management
+✅ Version control using Git & GitHub
 
-### `npm test`
+🔜 Next Steps & Features to Implement
+🚀 Upload & Analyze Question Papers
+🚀 Error Detection in Exam Papers
+🚀 Exam Paper Printing & Supply Chain System
+🚀 Real-time Dashboard & Reporting
+🚀 Deployment to Cloud (Heroku/Railway)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+👨‍💻 Contributors
+👤 @rochitl72 – Lead Developer
 
-### `npm run build`
+🔗 GitHub Repo: Django-based College Exam Management System
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📌 Steps to Upload this README.md to GitHub
+1️⃣ Create a README.md file:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
+Copy
+Edit
+touch README.md
+nano README.md
+2️⃣ Copy & paste the above content.
+3️⃣ Save the file (CTRL + X → Y → ENTER)
+4️⃣ Push to GitHub:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+bash
+Copy
+Edit
+git add README.md
+git commit -m "Added detailed project documentation"
+git push origin main
